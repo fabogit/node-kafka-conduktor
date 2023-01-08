@@ -1,7 +1,7 @@
 import fastify from "fastify";
 
 export function createServer() {
-  const app = fastify();
+  const app = fastify({ logger: true });
 
   return app;
 }

@@ -1,4 +1,3 @@
-import { group } from "console";
 import { Kafka } from "kafkajs";
 
 // from kafka image
