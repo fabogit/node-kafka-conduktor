@@ -6,12 +6,13 @@ login into conduktor @ `http://localhost:8080/home/`
 
 `cd services/messages && npm i` and `cd services/notifications && npm i`
 
+- run producer service `services/messages` `npm run dev`
 
+- run consumer service `services/notifications` `npm run dev`
 
+create messages using postman collection or thr conduktor ui
 
-
-
-
+shout down docker `cd conductor && docker-compose down`
 
 ### Kafka terms and definitions
 

@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "166d13d1-3c24-486f-890e-0ed38354ca06",
+		"name": "Kafka-conducktor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23729182"
+	},
+	"item": [
+		{
+			"name": "Producer",
+			"item": [
+				{
+					"name": "Send message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Hello World!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
