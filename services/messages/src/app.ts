@@ -14,7 +14,6 @@ async function main() {
 	const app = createServer();
 
 	await connectToDb();
-
 	await connectProducer();
 
 	app.listen({
