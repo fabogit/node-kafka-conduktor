@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 
 export async function connectToDb() {
-  const MONGO_URL =
-    process.env.MONGO_URL || "mongodb://localhost:27017/product";
-
   try {
-    await mongoose.connect(MONGO_URL);
+    // mongoose v7
+    mongoose.set("strictQuery", true);
+    await mongoose.connect(
+      process.env.MONGO_URL || "mongodb://127.0.0.1:27017/product"
+    );
   } catch (e) {
     console.error(e);
     process.exit(1);

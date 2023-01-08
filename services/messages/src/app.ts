@@ -3,28 +3,34 @@ import { connectProducer, disconnectFromProducer } from "./utils/kafka";
 import { createServer } from "./utils/server";
 
 async function gracefulShutdown(app: Awaited<ReturnType<typeof createServer>>) {
-  console.log("Graceful shutdown");
+	console.log("Graceful shutdown...");
 
-  await app.close();
-
-  await disconnectFromProducer();
-
-  process.exit(0);
+	await app.close();
+	await disconnectFromProducer();
+	process.exit(0);
 }
 
 async function main() {
-  const app = createServer();
+	const app = createServer();
 
-  await connectToDb();
+	await connectToDb();
 
-  await connectProducer();
+	await connectProducer();
 
-  app.listen({
-    port: 3000,
-    host: "0.0.0.0",
-  });
+	app.listen({
+		port: 3000,
+		host: "0.0.0.0",
+	});
 
-  console.log("Message service ready at http://localhost:3000");
+	const signals = ["SIGINT", "SIGTERM", "SIGQUIT"];
+	for (let i = 0; i < signals.length; i++) {
+		const signal = signals[i];
+		process.on(signal, () => {
+			gracefulShutdown(app);
+		});
+	}
+
+	console.log("Message service ready at http://localhost:3000");
 }
 
 main();

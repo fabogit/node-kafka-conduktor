@@ -13,11 +13,13 @@ const producer = kafka.producer();
 // connect to kafka
 export async function connectProducer() {
 	await producer.connect();
+	console.log("Producer connected");
 }
 
 // disconnect from kafka
 export async function disconnectFromProducer() {
-	return producer.disconnect();
+	await producer.disconnect();
+	console.log("Producer disconnected");
 }
 
 // readonly topics array
