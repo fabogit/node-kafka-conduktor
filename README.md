@@ -6,6 +6,8 @@ login into conduktor @ `http://localhost:8080/home/`
 
 `cd services/messages && npm i` and `cd services/notifications && npm i`
 
+have mongodb running or set up a docker container
+
 - run producer service `services/messages` `npm run dev`
 
 - run consumer service `services/notifications` `npm run dev`
